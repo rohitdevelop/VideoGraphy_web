@@ -40,9 +40,9 @@ const Navbar = () => {
 
   return (
     <nav
-      className={`fixed w-full z-50 transition-all duration-500 ${
+      className={`fixed w-full  z-50 transition-all duration-500 ${
         scrolled
-          ? "bg-white/80 backdrop-blur-xl shadow-lg border-b border-gray-200/50"
+          ? "bg-white/20 backdrop-blur-xl shadow-lg border-b border-gray-200/50"
           : "bg-transparent"
       }`}
     >
@@ -51,22 +51,21 @@ const Navbar = () => {
           {/* Logo */}
           <div className="flex items-center gap-3 group cursor-pointer">
             <div className="relative">
-              <div className="absolute inset-0 bg-red-500/20 rounded-full blur-lg group-hover:bg-red-500/40 transition-all duration-300"></div>
-              <div className="relative bg-gradient-to-br from-red-500 to-pink-600 p-3 rounded-xl group-hover:scale-110 transition-transform duration-300 shadow-lg">
+               <div className="relative bg-gradient-to-br from-red-500 to-pink-600 p-3 rounded-xl shadow-lg">
                 <Camera className="w-6 h-6 text-white" />
               </div>
             </div>
-            <div className="hidden sm:block">
+            <div className="">
               <h3
                 className={`font-bold text-xl tracking-tight transition-colors duration-300 ${
-                  scrolled ? "text-gray-900" : "text-white"
+                  scrolled ? "text-gray-100" : "text-white"
                 }`}
               >
                 Mr. Devesh & Team
               </h3>
               <p
                 className={`text-sm font-medium transition-colors duration-300 ${
-                  scrolled ? "text-gray-600" : "text-gray-300"
+                  scrolled ? "text-gray-100" : "text-gray-300"
                 }`}
               >
                 Photography & Videography
@@ -84,7 +83,7 @@ const Navbar = () => {
                     href={`#${id}`}
                     className={`relative px-4 py-2 font-medium transition-all duration-300 group ${
                       scrolled
-                        ? "text-gray-700 hover:text-red-500"
+                        ? "text-gray-200 hover:text-red-500"
                         : "text-white/90 hover:text-white"
                     }`}
                   >
@@ -110,13 +109,14 @@ const Navbar = () => {
 
             {/* CTA Button */}
             <li className="ml-2">
-              <button className="relative group bg-gradient-to-r from-red-500 to-pink-600 text-white px-6 py-2.5 rounded-lg font-semibold text-sm xl:text-base overflow-hidden transition-all duration-300 hover:shadow-xl hover:shadow-red-500/50 hover:scale-105">
+              <a href={`#contact`}>
+              <button className="relative group bg-gradient-to-r from-red-500 to-pink-600 text-white px-6 py-2.5 rounded-lg font-semibold text-sm xl:text-base overflow-hidden transition-all duration-300  hover:scale-105">
                 <span className="relative z-10 flex items-center gap-2">
                   <Camera className="w-4 h-4" />
                   Book Now
                 </span>
-                <div className="absolute inset-0 bg-gradient-to-r from-pink-600 to-purple-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-              </button>
+               </button>
+              </a>
             </li>
           </ul>
 
@@ -125,7 +125,7 @@ const Navbar = () => {
             onClick={() => setIsOpen(!isOpen)}
             className={`lg:hidden p-2 rounded-lg transition-all duration-300 ${
               scrolled
-                ? "text-gray-700 hover:bg-gray-100"
+                ? "text-gray-200 hover:bg-gray-100"
                 : "text-white hover:bg-white/10"
             }`}
             aria-label="Toggle menu"

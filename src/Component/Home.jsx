@@ -28,9 +28,7 @@ const Home = () => {
           <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent"></div>
         </div>
 
-        {/* Decorative elements */}
-        <div className="absolute top-20 left-10 w-64 h-64 bg-red-500/10 rounded-full blur-3xl animate-pulse"></div>
-        <div className="absolute bottom-20 right-10 w-80 h-80 bg-purple-500/10 rounded-full blur-3xl animate-pulse delay-700"></div>
+     
 
         {/* Main content */}
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-20">
@@ -43,7 +41,7 @@ const Home = () => {
 
               {/* Main heading */}
               <div>
-                <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold text-white mb-3 lg:mb-4 leading-tight">
+                <h1 className="text-4xl sm:text-5xl pt-10 lg:text-6xl xl:text-7xl font-bold text-white mb-3 lg:mb-4 leading-tight">
                   Professional Event
                   <span className="block bg-gradient-to-r from-red-500 via-pink-500 to-purple-500 bg-clip-text text-transparent mt-2">
                     Photography
@@ -64,6 +62,8 @@ const Home = () => {
 
               {/* Buttons */}
               <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start pt-4">
+                <a href='#contact'>
+
                 <button className="group relative bg-gradient-to-r from-red-500 to-pink-600 text-white px-8 py-4 rounded-lg font-semibold overflow-hidden transition-all duration-300 hover:shadow-2xl hover:shadow-red-500/50 hover:scale-105">
                   <span className="relative z-10 flex items-center justify-center gap-2">
                     <Camera className="w-5 h-5" />
@@ -71,9 +71,13 @@ const Home = () => {
                   </span>
                   <div className="absolute inset-0 bg-gradient-to-r from-pink-600 to-purple-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                 </button>
+                </a>
+                <a href="#portfolio">
+
                 <button className="border-2 border-red-500 text-red-400 px-8 py-4 rounded-lg font-semibold hover:bg-red-500/10 hover:border-red-400 hover:text-white transition-all duration-300 backdrop-blur-sm">
                   View Portfolio
                 </button>
+                </a>
               </div>
 
               {/* Stats Section */}

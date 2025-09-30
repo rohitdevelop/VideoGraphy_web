@@ -64,7 +64,7 @@ const Testimonials = () => {
             count: "500+",
             label: "Happy Clients",
             gradient: "from-blue-500/20 to-cyan-500/20",
-            iconColor: "blue-400"
+            iconColor: "red-400"
         },
         {
             icon: <Camera className="w-8 h-8" />,
@@ -78,7 +78,7 @@ const Testimonials = () => {
             count: "98%",
             label: "Satisfaction Rate",
             gradient: "from-orange-500/20 to-red-500/20",
-            iconColor: "orange-400"
+            iconColor: "green-400"
         },
         {
             icon: <Heart className="w-8 h-8" />,
@@ -116,17 +116,12 @@ const Testimonials = () => {
 
     return (
         <section id="testimonials" className="relative bg-gradient-to-b from-black via-gray-900 to-black py-16 sm:py-20 lg:py-28 overflow-hidden">
-            {/* Background decorative elements */}
-            <div className="absolute top-0 right-0 w-96 h-96 bg-pink-500/10 rounded-full blur-3xl"></div>
-            <div className="absolute bottom-0 left-0 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl"></div>
+           
 
             <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 {/* Section Header */}
                 <div className="text-center mb-12 lg:mb-16">
-                    <div className="inline-flex items-center gap-2 px-4 py-2 bg-pink-500/20 border border-pink-500/50 rounded-full backdrop-blur-sm mb-4">
-                        <Quote className="w-4 h-4 text-pink-400" />
-                        <span className="text-pink-300 text-sm font-medium">Client Stories</span>
-                    </div>
+                    
                     <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-4">
                         What Our <span className="bg-gradient-to-r from-pink-500 via-purple-500 to-blue-500 bg-clip-text text-transparent">Clients Say</span>
                     </h1>
@@ -157,10 +152,7 @@ const Testimonials = () => {
                                                 : "opacity-0 translate-x-full"
                                         }`}
                                     >
-                                        {/* Quote icon */}
-                                        <div className="absolute top-8 left-8 opacity-10">
-                                            <Quote className="w-20 h-20 text-pink-400" />
-                                        </div>
+                                       
 
                                         <div className="relative flex flex-col items-center text-center">
                                             {/* Client image */}
