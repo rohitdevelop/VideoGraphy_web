@@ -1,22 +1,42 @@
-"use client"
+"use client";
 
 import React, { useState, useEffect } from "react";
-import { BsFillCameraReelsFill } from "react-icons/bs";
 import { HiOutlineMenu, HiOutlineX } from "react-icons/hi";
 import { Camera } from "lucide-react";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [activeSection, setActiveSection] = useState("home");
 
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 20);
     };
-
     window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+
+    // Track sections
+    const sections = document.querySelectorAll("section[id]");
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setActiveSection(entry.target.id);
+          }
+        });
+      },
+      { rootMargin: "-50% 0px -50% 0px" } // fires when section is centered
+    );
+
+    sections.forEach((sec) => observer.observe(sec));
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      sections.forEach((sec) => observer.unobserve(sec));
+    };
   }, []);
+
+  const menuItems = ["Home", "About", "Service", "Portfolio", "Testimonials", "Contact"];
 
   return (
     <nav
@@ -28,63 +48,66 @@ const Navbar = () => {
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">
-          {/* Logo - Enhanced with animation */}
+          {/* Logo */}
           <div className="flex items-center gap-3 group cursor-pointer">
             <div className="relative">
               <div className="absolute inset-0 bg-red-500/20 rounded-full blur-lg group-hover:bg-red-500/40 transition-all duration-300"></div>
               <div className="relative bg-gradient-to-br from-red-500 to-pink-600 p-3 rounded-xl group-hover:scale-110 transition-transform duration-300 shadow-lg">
-                <Camera className={`w-6 h-6 transition-colors duration-300 ${
-                  scrolled ? "text-white" : "text-white"
-                }`} />
+                <Camera className="w-6 h-6 text-white" />
               </div>
             </div>
             <div className="hidden sm:block">
-              <h3 className={`font-bold text-xl tracking-tight transition-colors duration-300 ${
-                scrolled ? "text-gray-900" : "text-white"
-              }`}>
+              <h3
+                className={`font-bold text-xl tracking-tight transition-colors duration-300 ${
+                  scrolled ? "text-gray-900" : "text-white"
+                }`}
+              >
                 Mr. Devesh & Team
               </h3>
-              <p className={`text-sm font-medium transition-colors duration-300 ${
-                scrolled ? "text-gray-600" : "text-gray-300"
-              }`}>
+              <p
+                className={`text-sm font-medium transition-colors duration-300 ${
+                  scrolled ? "text-gray-600" : "text-gray-300"
+                }`}
+              >
                 Photography & Videography
               </p>
-            </div>
-            {/* Mobile logo text */}
-            <div className="sm:hidden">
-              <h3 className={`font-bold text-lg tracking-tight transition-colors duration-300 ${
-                scrolled ? "text-gray-900" : "text-white"
-              }`}>
-                Mr. Devesh
-              </h3>
             </div>
           </div>
 
           {/* Desktop Menu */}
           <ul className="hidden lg:flex items-center gap-1 xl:gap-2">
-            {["About", "Service", "Portfolio", "Testimonials", "Contact"].map((item) => (
-              <li key={item}>
-                <a
-                  href={`#${item.toLowerCase()}`}
-                  className={`relative px-4 py-2 font-medium transition-all duration-300 group ${
-                    scrolled
-                      ? "text-gray-700 hover:text-red-500"
-                      : "text-white/90 hover:text-white"
-                  }`}
-                >
-                  <span className="relative z-10 text-sm xl:text-base">{item}</span>
-                  {/* Animated underline */}
-                  <span className="absolute bottom-1 left-4 right-4 h-0.5 bg-gradient-to-r from-red-500 to-pink-500 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>
-                  {/* Hover background */}
-                  <span className={`absolute inset-0 rounded-lg transition-all duration-300 ${
-                    scrolled
-                      ? "bg-red-50/0 group-hover:bg-red-50"
-                      : "bg-white/0 group-hover:bg-white/10"
-                  }`}></span>
-                </a>
-              </li>
-            ))}
-            
+            {menuItems.map((item) => {
+              const id = item.toLowerCase();
+              return (
+                <li key={id}>
+                  <a
+                    href={`#${id}`}
+                    className={`relative px-4 py-2 font-medium transition-all duration-300 group ${
+                      scrolled
+                        ? "text-gray-700 hover:text-red-500"
+                        : "text-white/90 hover:text-white"
+                    }`}
+                  >
+                    <span
+                      className={`relative z-10 text-sm xl:text-base ${
+                        activeSection === id ? "text-red-500" : ""
+                      }`}
+                    >
+                      {item}
+                    </span>
+                    {/* Animated underline */}
+                    <span
+                      className={`absolute bottom-1 left-4 right-4 h-0.5 bg-gradient-to-r from-red-500 to-pink-500 transition-transform duration-300 origin-left ${
+                        activeSection === id
+                          ? "scale-x-100"
+                          : "scale-x-0 group-hover:scale-x-100"
+                      }`}
+                    ></span>
+                  </a>
+                </li>
+              );
+            })}
+
             {/* CTA Button */}
             <li className="ml-2">
               <button className="relative group bg-gradient-to-r from-red-500 to-pink-600 text-white px-6 py-2.5 rounded-lg font-semibold text-sm xl:text-base overflow-hidden transition-all duration-300 hover:shadow-xl hover:shadow-red-500/50 hover:scale-105">
@@ -116,43 +139,50 @@ const Navbar = () => {
         </div>
       </div>
 
-      {/* Mobile Menu with improved animation */}
+      {/* Mobile Menu */}
       <div
         className={`lg:hidden overflow-hidden transition-all duration-500 ease-in-out ${
           isOpen ? "max-h-[500px] opacity-100" : "max-h-0 opacity-0"
         }`}
       >
-        <div className={`backdrop-blur-xl border-t transition-colors duration-300 ${
-          scrolled
-            ? "bg-white/95 border-gray-200/50"
-            : "bg-black/80 border-white/10"
-        }`}>
+        <div
+          className={`backdrop-blur-xl border-t transition-colors duration-300 ${
+            scrolled
+              ? "bg-white/95 border-gray-200/50"
+              : "bg-black/80 border-white/10"
+          }`}
+        >
           <ul className="px-4 sm:px-6 py-6 space-y-1">
-            {["About", "Service", "Portfolio", "Testimonials", "Contact"].map((item, index) => (
-              <li
-                key={item}
-                className={`transform transition-all duration-300 ${
-                  isOpen
-                    ? "translate-x-0 opacity-100"
-                    : "-translate-x-4 opacity-0"
-                }`}
-                style={{ transitionDelay: `${index * 50}ms` }}
-              >
-                <a
-                  href={`#${item.toLowerCase()}`}
-                  onClick={() => setIsOpen(false)}
-                  className={`block px-4 py-3 rounded-lg font-medium transition-all duration-300 ${
-                    scrolled
-                      ? "text-gray-700 hover:bg-red-50 hover:text-red-500 hover:pl-6"
-                      : "text-white hover:bg-white/10 hover:text-red-400 hover:pl-6"
+            {menuItems.map((item, index) => {
+              const id = item.toLowerCase();
+              return (
+                <li
+                  key={id}
+                  className={`transform transition-all duration-300 ${
+                    isOpen
+                      ? "translate-x-0 opacity-100"
+                      : "-translate-x-4 opacity-0"
                   }`}
+                  style={{ transitionDelay: `${index * 50}ms` }}
                 >
-                  {item}
-                </a>
-              </li>
-            ))}
-            
-            {/* Mobile CTA Button */}
+                  <a
+                    href={`#${id}`}
+                    onClick={() => setIsOpen(false)}
+                    className={`block px-4 py-3 rounded-lg font-medium transition-all duration-300 ${
+                      activeSection === id
+                        ? "text-red-500"
+                        : scrolled
+                        ? "text-gray-700 hover:bg-red-50 hover:text-red-500"
+                        : "text-white hover:bg-white/10 hover:text-red-400"
+                    }`}
+                  >
+                    {item}
+                  </a>
+                </li>
+              );
+            })}
+
+            {/* Mobile CTA */}
             <li
               className={`pt-4 transform transition-all duration-300 ${
                 isOpen

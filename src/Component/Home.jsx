@@ -2,13 +2,18 @@ import Head from "next/head";
 import Navbar from "@/Component/Navbar";
 import Image from "next/image";
 import { Camera, Film, Award, Users } from "lucide-react";
-
+import About from "./About"
+import Servies from "./Servies";
+import Portfolio from "./Portfolio";
+import Testimonials from "./Testimonials";
+import Contact from "./Contact";
+import Footer from "./Footer";
 const Home = () => {
   return (
     <>
              <Navbar />
 
-      <main className="relative w-full min-h-screen bg-black overflow-hidden">
+      <main id='home' className="relative w-full min-h-screen bg-black overflow-hidden">
             
         {/* Background image with advanced overlay */}
         <div className="absolute inset-0">
@@ -128,6 +133,12 @@ const Home = () => {
         {/* Bottom decorative line */}
         <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-red-500 to-transparent"></div>
       </main>
+        <About/>
+        <Servies/>
+        <Portfolio />
+        <Testimonials/>
+        <Contact/>
+        <Footer/>
     </>
   );
 };
