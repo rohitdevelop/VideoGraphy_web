@@ -35,7 +35,7 @@ const About = () => {
 
             {/* Stats Section */}
             <div className="grid grid-cols-2 gap-4 lg:gap-6">
-              <div className="group bg-gradient-to-br from-red-500/20 to-pink-500/20 backdrop-blur-md border border-red-500/30 rounded-xl p-6 hover:border-red-500/60 transition-all duration-300 hover:scale-105">
+              <div className="group bg-gradient-to-br from-red-500/20 to-pink-500/20 backdrop-blur-md border border-red-500/30 rounded-xl p-6 hover:border-red-500/60 transition-all duration-300">
                 <div className="flex items-center justify-center w-12 h-12 bg-red-500/20 rounded-lg mb-3 mx-auto group-hover:scale-110 transition-transform duration-300">
                   <Camera className="w-6 h-6 text-red-400" />
                 </div>
@@ -43,7 +43,7 @@ const About = () => {
                 <p className="text-gray-400 text-sm lg:text-base text-center">Events Captured</p>
               </div>
               
-              <div className="group bg-gradient-to-br from-purple-500/20 to-pink-500/20 backdrop-blur-md border border-purple-500/30 rounded-xl p-6 hover:border-purple-500/60 transition-all duration-300 hover:scale-105">
+              <div className="group bg-gradient-to-br from-purple-500/20 to-pink-500/20 backdrop-blur-md border border-purple-500/30 rounded-xl p-6 hover:border-purple-500/60 transition-all duration-300">
                 <div className="flex items-center justify-center w-12 h-12 bg-purple-500/20 rounded-lg mb-3 mx-auto group-hover:scale-110 transition-transform duration-300">
                   <TrendingUp className="w-6 h-6 text-purple-400" />
                 </div>
@@ -102,7 +102,7 @@ const About = () => {
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
             {/* Creative Vision */}
-            <div className="group bg-gradient-to-br from-white/5 to-white/10 backdrop-blur-md border border-white/10 rounded-2xl p-6 lg:p-8 hover:border-red-500/50 hover:scale-105 transition-all duration-300">
+            <div className="group bg-gradient-to-br from-white/5 to-white/10 backdrop-blur-md border border-white/10 rounded-2xl p-6 lg:p-8 hover:border-red-500/50  transition-all duration-300">
               <div className="flex items-center justify-center w-16 h-16 bg-gradient-to-br from-red-500/20 to-pink-500/20 rounded-xl mb-4 group-hover:scale-110 transition-transform duration-300">
                 <Sparkles className="w-8 h-8 text-red-400" />
               </div>
@@ -113,7 +113,7 @@ const About = () => {
             </div>
 
             {/* Excellence */}
-            <div className="group bg-gradient-to-br from-white/5 to-white/10 backdrop-blur-md border border-white/10 rounded-2xl p-6 lg:p-8 hover:border-purple-500/50 hover:scale-105 transition-all duration-300">
+            <div className="group bg-gradient-to-br from-white/5 to-white/10 backdrop-blur-md border border-white/10 rounded-2xl p-6 lg:p-8 hover:border-purple-500/50  transition-all duration-300">
               <div className="flex items-center justify-center w-16 h-16 bg-gradient-to-br from-purple-500/20 to-pink-500/20 rounded-xl mb-4 group-hover:scale-110 transition-transform duration-300">
                 <Award className="w-8 h-8 text-purple-400" />
               </div>
@@ -124,7 +124,7 @@ const About = () => {
             </div>
 
             {/* Passion */}
-            <div className="group bg-gradient-to-br from-white/5 to-white/10 backdrop-blur-md border border-white/10 rounded-2xl p-6 lg:p-8 hover:border-pink-500/50 hover:scale-105 transition-all duration-300 sm:col-span-2 lg:col-span-1">
+            <div className="group bg-gradient-to-br from-white/5 to-white/10 backdrop-blur-md border border-white/10 rounded-2xl p-6 lg:p-8 hover:border-pink-500/50 transition-all duration-300 sm:col-span-2 lg:col-span-1">
               <div className="flex items-center justify-center w-16 h-16 bg-gradient-to-br from-pink-500/20 to-red-500/20 rounded-xl mb-4 group-hover:scale-110 transition-transform duration-300">
                 <Heart className="w-8 h-8 text-pink-400" />
               </div>

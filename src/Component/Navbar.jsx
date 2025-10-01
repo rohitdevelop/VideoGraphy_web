@@ -9,9 +9,14 @@ const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState("home");
 
-  useEffect(() => {
+    useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 20);
+      
+      // Detect if we're at the top of the page
+      if (window.scrollY < 100) {
+        setActiveSection("home");
+      }
     };
     window.addEventListener("scroll", handleScroll);
 
@@ -110,7 +115,7 @@ const Navbar = () => {
             {/* CTA Button */}
             <li className="ml-2">
               <a href={`#contact`}>
-              <button className="relative group bg-gradient-to-r from-red-500 to-pink-600 text-white px-6 py-2.5 rounded-lg font-semibold text-sm xl:text-base overflow-hidden transition-all duration-300  hover:scale-105">
+              <button className="relative cursor-pointer group bg-gradient-to-r from-red-500 to-pink-600 text-white px-6 py-2.5 rounded-lg font-semibold text-sm xl:text-base overflow-hidden transition-all duration-300  hover:scale-105">
                 <span className="relative z-10 flex items-center gap-2">
                   <Camera className="w-4 h-4" />
                   Book Now

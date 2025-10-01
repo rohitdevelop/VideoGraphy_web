@@ -46,8 +46,8 @@ const Services = () => {
       gradient: "from-blue-500/20 to-cyan-500/20",
       borderColor: "blue-500/30",
       hoverBorder: "blue-500/60",
-      iconBg: "blue-500/20",
-      iconColor: "blue-400",
+      iconBg: "white",
+      iconColor: "green-400",
     },
     {
       id: 3,
@@ -83,7 +83,7 @@ const Services = () => {
       borderColor: "orange-500/30",
       hoverBorder: "orange-500/60",
       iconBg: "orange-500/20",
-      iconColor: "orange-400",
+      iconColor: "red-400",
     },
     {
       id: 5,

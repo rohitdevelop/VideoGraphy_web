@@ -96,17 +96,12 @@ const Portfolio = () => {
 
     return (
         <section id="portfolio" className="relative bg-black py-16 sm:py-20 lg:py-28 overflow-hidden">
-            {/* Background decorative elements */}
-            <div className="absolute top-0 left-0 w-96 h-96 bg-pink-500/10 rounded-full blur-3xl"></div>
-            <div className="absolute bottom-0 right-0 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl"></div>
+ 
 
             <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 {/* Section Header */}
                 <div className="text-center mb-12 lg:mb-16">
-                    <div className="inline-flex items-center gap-2 px-4 py-2 bg-pink-500/20 border border-pink-500/50 rounded-full backdrop-blur-sm mb-4">
-                        <Camera className="w-4 h-4 text-pink-400" />
-                        <span className="text-pink-300 text-sm font-medium">Our Work</span>
-                    </div>
+                   
                     <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-4">
                         Our <span className="bg-gradient-to-r from-pink-500 via-purple-500 to-red-500 bg-clip-text text-transparent">Portfolio</span>
                     </h1>
