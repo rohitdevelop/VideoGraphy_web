@@ -192,53 +192,58 @@ const Services = () => {
         </div>
 
         {/* CTA Section */}
-        <div className="relative">
-          {/* Decorative glow */}
-          <div className="absolute inset-0 bg-gradient-to-r from-red-500/10 via-pink-500/10 to-purple-500/10 rounded-3xl blur-2xl"></div>
+      <div className="relative">
+  {/* Decorative glow */}
+  <div className="absolute inset-0 bg-gradient-to-r from-red-500/10 via-pink-500/10 to-purple-500/10 rounded-3xl blur-2xl"></div>
 
-          <div className="relative bg-gradient-to-br from-white/5 to-white/10 backdrop-blur-xl border border-white/10 rounded-3xl p-8 lg:p-12 text-center">
-            <div className="max-w-3xl mx-auto">
-              {/* Icon */}
-              <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-red-500 to-pink-600 rounded-2xl mb-6 shadow-lg shadow-red-500/50">
-                <Sparkles className="w-8 h-8 text-white" />
-              </div>
+  <div className="relative bg-gradient-to-br from-white/5 to-white/10 backdrop-blur-xl border border-white/10 rounded-3xl p-8 lg:p-12 text-center">
+    <div className="max-w-3xl mx-auto">
+      {/* Icon */}
+      <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-red-500 to-pink-600 rounded-2xl mb-6 shadow-lg shadow-red-500/50">
+        <Sparkles className="w-8 h-8 text-white" />
+      </div>
 
-              {/* Heading */}
-              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4">
-                Ready to Create Something{" "}
-                <span className="bg-gradient-to-r from-red-400 via-pink-400 to-purple-400 bg-clip-text text-transparent">
-                  Beautiful?
-                </span>
-              </h2>
+      {/* Heading */}
+      <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4">
+        Ready to Create Something{" "}
+        <span className="bg-gradient-to-r from-red-400 via-pink-400 to-purple-400 bg-clip-text text-transparent">
+          Beautiful?
+        </span>
+      </h2>
 
-              {/* Description */}
-              <p className="text-gray-300 text-base sm:text-lg lg:text-xl mb-8 leading-relaxed">
-                Let's discuss your vision and create a customized package that
-                perfectly fits your needs and budget.
-              </p>
+      {/* Description */}
+      <p className="text-gray-300 text-base sm:text-lg lg:text-xl mb-8 leading-relaxed">
+        Let's discuss your vision and create a customized package that perfectly fits your needs and budget.
+      </p>
 
-              {/* Buttons */}
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <a href="#contact">
-                  <button className="group relative bg-gradient-to-r from-red-500 to-pink-600 text-white px-8 py-4 rounded-xl font-semibold overflow-hidden transition-all duration-300 hover:shadow-2xl hover:shadow-red-500/50 hover:scale-105">
-                    <span className="relative z-10 flex items-center justify-center gap-2">
-                      <Phone className="w-5 h-5 group-hover:rotate-12 transition-transform duration-300" />
-                      Get Quote
-                    </span>
-                    <div className="absolute inset-0 bg-gradient-to-r from-pink-600 to-purple-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                  </button>
-                </a>
-                <a href="#contact">
-                  <button className="group border-2 border-red-500 text-red-400 px-8 py-4 rounded-xl font-semibold hover:bg-red-500/10 hover:border-red-400 hover:text-white transition-all duration-300 backdrop-blur-sm flex items-center justify-center gap-2">
-                    <Image className="w-5 h-5 group-hover:scale-110 transition-transform duration-300" />
-                    View Work
-                  </button>
-                </a>
-              </div>
- 
-            </div>
-          </div>
-        </div>
+      {/* Buttons */}
+      <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+        {/* Get Quote Button */}
+        <a href="#contact">
+          <button className="group flex items-center gap-2 px-6 py-3 sm:px-8 sm:py-4 bg-gradient-to-r from-red-500 to-pink-600 text-white rounded-xl font-semibold transition-all duration-300 hover:scale-105 hover:shadow-lg">
+            <Phone className="w-4 h-4 sm:w-5 sm:h-5" />
+            Get Quote
+          </button>
+        </a>
+
+        {/* View Work Button */}
+        <a href="#portfolio">
+          <button className="group flex items-center gap-2 px-6 py-3 sm:px-8 sm:py-4 border-2 border-red-500 text-red-400 rounded-xl font-semibold transition-all duration-300 hover:bg-red-500/10 hover:border-red-400 hover:text-white">
+            <Image
+              src="/icons/work-icon.png"
+              width={18}
+              height={18}
+              className="group-hover:scale-110 transition-transform duration-300"
+              alt="Work Icon"
+            />
+            View Work
+          </button>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
       </div>
 
       {/* Bottom decorative line */}
