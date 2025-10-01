@@ -1,7 +1,10 @@
+"use client"
+
 import Head from "next/head";
+import React, { useState, useEffect } from "react";
 import Navbar from "@/Component/Navbar";
 import Image from "next/image";
-import { Camera, Film, Award, Users } from "lucide-react";
+import { Camera, Film, Award, Users ,ShieldCheck , UserCheck } from "lucide-react";
 import About from "./About";
 import Servies from "./Servies";
 import Portfolio from "./Portfolio";
@@ -9,6 +12,44 @@ import Testimonials from "./Testimonials";
 import Contact from "./Contact";
 import Footer from "./Footer";
 const Home = () => {
+     const [isHomeSection, setIsHomeSection] = useState(true);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    // Check if mobile
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768); // 768px is md breakpoint
+    };
+
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+
+    const handleScroll = () => {
+      // Get the home section
+      const homeSection = document.getElementById("home");
+      
+      if (homeSection) {
+        const homeSectionBottom = homeSection.offsetTop + homeSection.offsetHeight;
+        const scrollPosition = window.scrollY + window.innerHeight / 2;
+        
+        // Check if we're in the home section
+        setIsHomeSection(scrollPosition < homeSectionBottom);
+      }
+    };
+
+    // Check on mount
+    handleScroll();
+
+    window.addEventListener("scroll", handleScroll);
+    
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("resize", checkMobile);
+    };
+  }, []);
+
+  // Show text only on desktop AND in home section
+  const showText = !isMobile && isHomeSection;
   return (
     <>
       <Navbar />
@@ -29,7 +70,32 @@ const Home = () => {
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent"></div>
         </div>
+       <div className="fixed bottom-4 left-4 z-50">
+        <button className="flex items-center gap-2 bg-gradient-to-r from-red-500 to-red-600 text-white px-3 py-2 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 hover:from-red-600 hover:to-red-700">
+          <UserCheck className="w-5 h-5 flex-shrink-0" />
+          <span
+            className={`font-semibold whitespace-nowrap overflow-hidden transition-all duration-500 ease-in-out ${
+              showText ? "max-w-xs opacity-100" : "max-w-0 opacity-0"
+            }`}
+          >
+            Proud Member of DNI
+          </span>
+        </button>
+      </div>
 
+      {/* Right Button - VoltSec */}
+      <div className="fixed bottom-4 right-4 z-50">
+        <button className="flex items-center gap-2 bg-gradient-to-r from-blue-600 to-blue-700 text-white px-3 py-2 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 hover:from-blue-700 hover:to-blue-800">
+          <ShieldCheck className="w-5 h-5 flex-shrink-0" />
+          <span
+            className={`font-semibold whitespace-nowrap overflow-hidden transition-all duration-500 ease-in-out ${
+              showText ? "max-w-xs opacity-100" : "max-w-0 opacity-0"
+            }`}
+          >
+            Secured by VoltSec.io
+          </span>
+        </button>
+      </div>
         {/* Main content */}
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-20">
           <div className="flex flex-col lg:flex-row items-center gap-8 lg:gap-16 min-h-[calc(100vh-200px)]">
